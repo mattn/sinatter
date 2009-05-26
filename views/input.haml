@@ -1,0 +1,8 @@
+%form{:method => "POST", :action => '/home'}
+  %input{:type => "hidden", :name => "_method", :value => "PUT"}
+  .label
+    %span What's are you doing?
+  .input
+    %textarea{:name => "text", :cols => 60, :rows => 3}
+  .submit
+    %input{:type => "submit", :value => "tweet" }

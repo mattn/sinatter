@@ -1,0 +1,16 @@
+%h3== Register
+%form{:method => "POST", :action => '/register'}
+  %input{:type => "hidden", :name => "_method", :value => "PUT"}
+  %table
+    %tr
+      %td user
+      %td 
+        %input{:type => "text", :name => "user"}
+    %tr
+      %td password
+      %td
+        %input{:type => "password", :name => "password"}
+    %tr
+      %td
+      %td
+        %input{:type => "submit", :value => "regist"}

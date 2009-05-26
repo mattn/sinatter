@@ -1,0 +1,5 @@
+= haml :menu, :layout => false
+%h3== Your Replies
+- @statuses.each do |status|
+  - @status = status
+  = haml :status, :layout => false

@@ -1,0 +1,18 @@
+%h3== Login
+.menu
+  %a{:href=>"/register"}== register
+%form{:method => "POST", :action => '/login'}
+  %input{:type => "hidden", :name => "_method", :value => "PUT"}
+  %table
+    %tr
+      %td user
+      %td 
+        %input{:type => "text", :name => "user"}
+    %tr
+      %td password
+      %td
+        %input{:type => "password", :name => "password"}
+    %tr
+      %td
+      %td
+        %input{:type => "submit", :value => "login"}

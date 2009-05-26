@@ -1,0 +1,11 @@
+.entry
+  .body
+    = @status.formatted_text
+  .info
+    %span.user
+      by
+      %a{:href=>"/user/#{@status.user}"}== #{h @status.user}
+    %span.date
+      at
+      %a{ :href => "/statuses/#{ @status.id }" }== #{h @status.date}
+%br
