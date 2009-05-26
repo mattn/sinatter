@@ -8,6 +8,7 @@ DB = Sequel.sqlite("sinatter.db")
 
 set :sessions, true
 set :environment, :no_test
+set :public, File.dirname(__FILE__) + '/static'
 
 class Status < Sequel::Model
   set_schema do
@@ -67,7 +68,7 @@ put '/register' do
       :password => request[:password].strip,
       :image => request[:image],
       :created_at => Time.now,
-    })
+    }) unless User.find(:user=>request[:user].strip)
     redirect '/'
   else
     haml :login
@@ -144,4 +145,5 @@ put '/setting' do
   @setting.save(:password, :image)
   haml :setting
 end
+
 
