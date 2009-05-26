@@ -1,6 +1,8 @@
 .entry
   .body
+    %img{:src=>User.find(:user=>@status.user).image, :width=>32, :float=>"left"}
     = @status.formatted_text
+    %br{:clear=>"all"}
   .info
     %span.user
       by
