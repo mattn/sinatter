@@ -109,7 +109,6 @@ end
 
 put '/home' do
   redirect '/login' unless session[:user]
-  raise SinatterException, 'heroku server is not accept to post status.' if env['HTTP_HOST'].index("sinatter.heroku.com") == 0
   Status.create({
     :user => session[:user],
     :text => request[:text],
