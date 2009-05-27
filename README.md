@@ -15,5 +15,5 @@ no no no!
 
 LICENSE:
 --------
-BSD Lisence
+BSD License
 
