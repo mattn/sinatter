@@ -36,3 +36,7 @@ or
 
 	ruby sinatter.rb
 
+DEMO:
+-----
+
+login to http://sinatter.heroku.com/ as user 'mattn' and password 'demo'.
