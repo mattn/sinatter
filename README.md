@@ -25,6 +25,8 @@ REQUIRES:
 	# gemifest list
 	# gemifest install
 
+windows?: git clone git://github.com/mattn/gemifest.git
+
 HOW TO RUN:
 -----------
 
