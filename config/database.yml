@@ -1,0 +1,10 @@
+production:
+  adapter: sqlite3
+  dbfile: db/sinatter.db
+  timeout: 5000
+ 
+development:
+  production:
+  adapter: sqlite3
+  dbfile: db/sinatter-dev.db
+  timeout: 5000
