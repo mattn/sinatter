@@ -10,6 +10,8 @@ set :sessions, true
 set :environment, :no_test
 set :public, File.dirname(__FILE__) + '/static'
 
+class SinatterException < Exception; end
+
 class Status < Sequel::Model
   set_schema do
     primary_key :id
@@ -63,6 +65,7 @@ end
 
 put '/register' do
   if request[:user] and request[:password]
+    raise SinatterException, 'heroku server is not accept to create user.' if env['HTTP_HOST'].index("sinatter.heroku.com") == 0
     User.create({
       :user => request[:user].strip,
       :password => request[:password].strip,
@@ -106,6 +109,7 @@ end
 
 put '/home' do
   redirect '/login' unless session[:user]
+  raise SinatterException, 'heroku server is not accept to post status.' if env['HTTP_HOST'].index("sinatter.heroku.com") == 0
   Status.create({
     :user => session[:user],
     :text => request[:text],
@@ -139,6 +143,7 @@ end
 
 put '/setting' do
   redirect '/login' unless session[:user]
+  raise SinatterException, 'heroku server is not accept to change settings.' if env['HTTP_HOST'].index("sinatter.heroku.com") == 0
   @setting = User.find(:user=>session[:user])
   @setting.password = request[:password]
   @setting.image = request[:image]
@@ -146,4 +151,17 @@ put '/setting' do
   haml :setting
 end
 
+error SinatterException do
+  @err = env['sinatra.error'].message
+  haml :error
+end
 
+error do
+  @err = 'Unhandled Error - ' + env['sinatra.error'].message
+  haml :error
+end
+
+not_found do
+  @err = 'Document Not Found'
+  haml :error
+end
