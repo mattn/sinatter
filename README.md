@@ -28,9 +28,9 @@ REQUIRES:
 HOW TO RUN:
 -----------
 
-  rackup -p 80 config.ru
+	rackup -p 80 config.ru
 
 or
 
-  ruby sinatter.rb
+	ruby sinatter.rb
 
