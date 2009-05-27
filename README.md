@@ -17,3 +17,19 @@ LICENSE:
 --------
 BSD License
 
+REQUIRES:
+
+# gem sources -a http://gems.github.com
+# gem install nakajima-gemifest
+# gemifest list
+# gemifest install
+
+HOW TO RUN:
+-----------
+
+  rackup -p 80 config.ru
+
+or
+
+  ruby sinatter.rb
+
