@@ -4,7 +4,7 @@ require 'sequel'
 require 'haml'
 require 'sass'
 Sequel::Model.plugin(:schema)
-DB = Sequel.sqlite("sinatter.db")
+DB = Sequel.sqlite("db/sinatter.db")
 
 set :sessions, true
 set :environment, :no_test
