@@ -1,3 +1,10 @@
 sinatra
+<<<<<<< HEAD:.gems
 sequel
 haml
+=======
+sinatra
+sequel
+haml
+rack
+>>>>>>> fbff2c83750f35e22fbee58ab17993f1011fb85f:.gems
