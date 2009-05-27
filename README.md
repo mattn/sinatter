@@ -13,3 +13,7 @@ POLICY:
 -------
 no no no!
 
+LICENSE:
+--------
+BSD Lisence
+
