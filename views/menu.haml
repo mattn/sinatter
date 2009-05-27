@@ -1,0 +1,5 @@
+.menu
+  %a{:href=>"/home"}= 'home' if session[:user]
+  %a{:href=>"/replies"}= 'replies' if session[:user]
+  %a{:href=>"/setting"}= 'setting' if session[:user]
+  %a{:href=>"/logout"}= 'logout' if session[:user]

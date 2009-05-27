@@ -1,0 +1,18 @@
+= haml :menu, :layout => false
+%h3== Setting
+
+%form{:method => "POST", :action => '/setting'}
+  %input{:type => "hidden", :name => "_method", :value => "PUT"}
+  %table
+    %tr
+      %td password
+      %td
+        %input{:type => "password", :name => "password", :value => @setting.password }
+    %tr
+      %td profile image
+      %td
+        %input{:type => "text", :name => "image", :value => @setting.image }
+    %tr
+      %td
+      %td
+        %input{:type => "submit", :value => "update"}

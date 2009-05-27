@@ -1,0 +1,5 @@
+= haml :menu, :layout => false
+%h3== User Timeline
+- @statuses.each do |status|
+  - @status = status
+  = haml :status, :layout => false
