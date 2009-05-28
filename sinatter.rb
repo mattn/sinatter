@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sequel'
 require 'haml'
 require 'sass'
+require 'builder'
 Sequel::Model.plugin(:schema)
 DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://sinatter.db')
 
@@ -125,8 +126,14 @@ end
 
 get '/user/:user' do
   redirect '/login' unless session[:user]
-  @statuses = Status.filter(:user => params["user"]).order_by(:created_at.desc).limit(10)
-  haml :user
+  user,format = params["user"].split('.')
+  @statuses = Status.filter(:user => user).order_by(:created_at.desc).limit(10)
+  if format == 'rss'
+    @user = user
+    builder :user_rss
+  else
+    haml :user
+  end
 end
 
 get '/statuses/:id' do
