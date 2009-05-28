@@ -5,7 +5,7 @@ require 'haml'
 require 'sass'
 require 'builder'
 Sequel::Model.plugin(:schema)
-DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://sinatter.db')
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://db/sinatter.db')
 
 set :sessions, true
 set :environment, :no_test
