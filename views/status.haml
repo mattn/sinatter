@@ -9,5 +9,5 @@
       %a{:href=>"/user/#{@status.user}"}== #{h @status.user}
     %span.date
       at
-      %a{ :href => "/statuses/#{ @status.id }" }== #{h @status.date}
+      %a{ :href => "/user/#{@status.user}/statuses/#{ @status.id }" }== #{h @status.date}
 %br

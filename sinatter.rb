@@ -136,7 +136,7 @@ get '/user/:user' do
   end
 end
 
-get '/statuses/:id' do
+get '/user/:user/statuses/:id' do
   @status = Status.find(:id => params["id"])
   haml :status
 end
