@@ -44,10 +44,6 @@ class User < Sequel::Model
   def date
     self.created_at.strftime("%Y-%m-%d %H:%M:%S")
   end
-
-  def formatted_text
-    Rack::Utils.escape_html(self.text).gsub(/\n/, "<br>")
-  end
 end
 User.create_table unless User.table_exists?
 
